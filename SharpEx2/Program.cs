@@ -22,6 +22,7 @@ namespace SharpEx2
                 Name = "Alex",
                 LowestGrade =  54.6,
                 HighestGrade = 87.2
+                    пизда
             };
         }
     }
