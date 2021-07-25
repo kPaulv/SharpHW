@@ -6,31 +6,61 @@ using System.Threading.Tasks;
 
 namespace SharpEx2
 {
-    struct Student
+    public class Student
     {
-        public string Name;
-        public double LowestGrade;
-        public double HighestGrade;
-        public double MeanGrade;
+        private readonly string _name;
+        private readonly double _lowestGrade;
+        private readonly double _highestGrade;
+        private readonly double _meanGrade;
 
-        public void SetName(string oName)
+        public Student()
         {
-            Name = oName;
+            
         }
 
-        public void CountMean()
+        public Student(string name, double lowGrade, double highGrade, double meanGrade)
         {
-            MeanGrade = (LowestGrade + HighestGrade) / 2;
+            _name = name;
+            _lowestGrade = lowGrade;
+            _highestGrade = highGrade;
+            _meanGrade = meanGrade;
+        }
+
+        public Student(Student oStudent)
+        {
+            _name = oStudent.GetName();
+            _lowestGrade = oStudent.GetLowestGrade();
+            _highestGrade = oStudent.GetHighestGrade();
+        }
+
+        public string GetName()
+        {
+            return _name;
+        }
+
+        public double GetLowestGrade()
+        {
+            return _lowestGrade;
+        }
+
+        public double GetHighestGrade()
+        {
+            return _highestGrade;
+        }
+
+        public double GetMeanGrade()
+        {
+            return _meanGrade;
         }
 
         public void DisplayGrades()
         {
-            Console.WriteLine($"Name: {Name}, LowGrade: {LowestGrade}, HighGrade:" +
-                              $" {HighestGrade}, Mean: {MeanGrade}");
+            Console.WriteLine($"Name: {_name}, LowGrade: {_lowestGrade}, HighGrade:" +
+                              $" {_highestGrade}, Mean: {(_lowestGrade + _highestGrade) / 2}");
         }
 
     }
-    class StudentList
+    public class StudentList
     {
         private LinkedList<Student> _students;
 
@@ -49,12 +79,17 @@ namespace SharpEx2
             _students = otherStudents;
         }
 
+        public void AddStudent(Student student)
+        {
+            _students.AddLast(student);
+        }
+
         public void ShowList()
         {
             foreach (var item in _students)
             {
-                Console.WriteLine($"Name: {item.Name}, LowestGrade: {item.LowestGrade}, " +
-                                  $"HighestGrade: {item.HighestGrade}, Mean: {item.MeanGrade}.");
+                Console.WriteLine($"Name: {item.GetName()}, LowestGrade: {item.GetLowestGrade()}, " +
+                                  $"HighestGrade: {item.GetHighestGrade()}, Mean: {item.GetMeanGrade()}.");
             }
         }
     }
