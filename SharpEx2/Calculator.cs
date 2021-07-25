@@ -1,16 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SharpEx2
-{
-
+{ 
     struct Currency
     {
-        public double Byn;
-        public double Usd;
+        public const double ConversionRate = 2.589;
+
+        public double BynToUsd(double bynMoney)
+        {
+            if (bynMoney > 0)
+            {
+                return bynMoney / ConversionRate;
+            }
+
+            return 0;
+        }
+
+        public double UsdToByn(double usdMoney)
+        {
+            if (usdMoney > 0)
+            {
+                return usdMoney * ConversionRate;
+            }
+
+            return 0;
+        }
     }
 
     struct Swapper
@@ -35,35 +49,12 @@ namespace SharpEx2
 
     }
 
-    //struct CastSet
-    //{
-    //    public double DVal;
-    //    public string SVal;
-    //    public float FVal;
-    //}
-
-    class Calculator
+    public class Parser
     {
-        private Currency _currencyPair;
-        //private CastSet _castData;
-
-        public Calculator(Currency oCurrencyPair/*, CastSet oCastData*/)
+        public Parser()
         {
-            _currencyPair = oCurrencyPair;
-            //_castData = oCastData;
-        }
 
-        public Currency CurrencyPair
-        {
-            get;
-            set;
         }
-
-        //public CastSet CastData
-        //{
-        //    get;
-        //    set;
-        //}
 
         public int DoubleToInt(double dVal)
         {
@@ -79,8 +70,21 @@ namespace SharpEx2
         {
             return Convert.ToInt32(fVal);
         }
+    }
 
-        public int CountIntMean(int first, int second)
+    public class Calculator
+    {
+        public Calculator()
+        {
+
+        }
+
+        public static int CountIntMean(int first, int second)
+        {
+            return (first + second) / 2;
+        }
+
+        public static double CountDoubleMean(double first, double second)
         {
             return (first + second) / 2;
         }

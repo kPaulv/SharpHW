@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SharpEx2
 {
@@ -17,12 +18,19 @@ namespace SharpEx2
             sw.Swap();
             Console.WriteLine($"First: {sw.First}, Second: {sw.Second}");
 
-            Student st1 = new Student
-            {
-                Name = "Alex",
-                LowestGrade =  54.6,
-                HighestGrade = 87.2
-            };
+            Currency currencyPair = new Currency();
+            Console.WriteLine($"1124.5 BYN in USD: {currencyPair.BynToUsd(1124.5)}");
+            Console.WriteLine($"557.24 USD in BYN: {currencyPair.BynToUsd(1124.5)}");
+
+            Student st1 = new Student("Alex", 54.6, 87.2, Calculator.CountDoubleMean(54.6, 87.2));
+            Student st2 = new Student("Steve", 35.0, 88.67575, Calculator.CountDoubleMean(35.0, 88.67575));
+            Student st3 = new Student("Nick", 67.6, 95.347, Calculator.CountDoubleMean(67.6, 95.347));
+
+            StudentList students = new StudentList();
+            students.AddStudent(st1);
+            students.AddStudent(st2);
+            students.AddStudent(st3);
         }
     }
 }
+
