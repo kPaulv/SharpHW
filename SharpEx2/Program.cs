@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SharpEx2
 {
@@ -30,6 +31,9 @@ namespace SharpEx2
             students.AddStudent(st1);
             students.AddStudent(st2);
             students.AddStudent(st3);
+
+            //CPU Bound Task on counting taylor row sum.
+            AsyncMethodCaller.CallRowSumAsync();
         }
     }
 }
