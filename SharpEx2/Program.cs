@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace SharpEx2
 {
@@ -34,6 +32,14 @@ namespace SharpEx2
 
             //CPU Bound Task on counting taylor row sum.
             AsyncMethodCaller.CallRowSumAsync();
+            ArrayOperations arrayOperations = new ArrayOperations
+            {
+                Array = new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+            };
+            foreach (var item in arrayOperations.CollectEven())
+            {
+                Console.WriteLine(item);   
+            }
         }
     }
 }
