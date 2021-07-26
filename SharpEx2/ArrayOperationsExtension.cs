@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SharpEx2
 {
 
     public class ArrayOperations : IEnumerable<int>
     {
-        private int[] _array;
+        private readonly int[] _array;
 
         public ArrayOperations()
         {

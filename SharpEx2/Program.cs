@@ -34,15 +34,12 @@ namespace SharpEx2
             AsyncMethodCaller.CallRowSumAsync();
             ArrayOperations arrayOperations = new ArrayOperations
             {
-                Array = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+                Array = new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
             };
             foreach (var item in arrayOperations.CollectEven())
             {
                 Console.WriteLine(item);   
             }
-
-            
-
         }
     }
 }
